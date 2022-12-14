@@ -91,7 +91,7 @@ function loginCheck() {
     model.error = `<div style="color: red; font-size: 10">Username or password is wrong</div><br>`;
     model.loginCheck = false;
   } else {
-    model.mainView = `<h1>Welcome ${userName}!</h1>`;
+    model.mainView = `<div class="login"><h1>Welcome ${userName}!</h1></div>`;
   }
   view();
 }
