@@ -26,7 +26,7 @@ function createAccount() {
     <input type="text" id="newName" placeholder="Minimum 3 characters"/><br><br>
     <label for="newPword">Password:</label><br>
     <input type="password" id="newPword" placeholder="Minimum 8 characters"/><br><br>
-    <label for="newPwordVerify">Verify Password:</label><br>
+    <label for="newPwordVerify">Verify password:</label><br>
     <input type="password" id="newPwordVerify" placeholder="Minimum 8 characters"/><br><br>
     <button onclick="createNewAccount()">Create account</button> <button onclick="cancelAccountCreate()">Cancel</button></p>
     ${model.error}
