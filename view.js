@@ -1,6 +1,6 @@
 function view() {
   let html = "";
-  if (model.loggedIn || model.createAccount) {
+  if (model.loggedIn || model.createAccount || model.loginCheck) {
   } else {
     logInScreen();
   }

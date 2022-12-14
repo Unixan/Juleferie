@@ -3,7 +3,14 @@ const model = {
   loggedIn: false,
   mainView: "",
   currentUser: {},
-  userAccounts: [],
+  loginCheck: false,
+  userAccounts: [
+    {
+      userName: "Unixan",
+      userPword: "wronganswer",
+      userLevel: "admin",
+    },
+  ],
   userLogin: {
     name: "",
     password: "",
