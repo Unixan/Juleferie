@@ -14,7 +14,7 @@ function logInScreen() {
           <p>${model.error}</p>
   </div>
 </div>
-  `;
+`;
   model.error = "";
 }
 
@@ -75,23 +75,34 @@ function createNewAccount() {
 function loginCheck() {
   model.loginCheck = true;
   model.mainView = "";
-  let loginSuccess = false;
   let userName = document.getElementById("loginName").value;
   let userPword = document.getElementById("loginPword").value;
-  for (i of model.userAccounts) {
-    if (userName === i.userName) {
-      for (j of model.userAccounts) {
-        if (userPword === j.userPword) {
-          loginSuccess = true;
-        }
-      }
+  if (model.userAccounts.find((i) => i.userName === userName)) {
+    if (model.userAccounts.find((j) => j.userPword === userPword)) {
+      model.mainView = `<div class="login"><h1>Welcome ${userName}!</h1></div>`;
+      accountIndex = model.userAccounts.findIndex(
+        (x) => x.userName === userName
+      );
+      model.currentUser = model.userAccounts[accountIndex];
+      model.loginCheck = false;
+      model.loggedIn = true;
     }
-  }
-  if (loginSuccess == false) {
+  } else {
     model.error = `<div style="color: red; font-size: 10">Username or password is wrong</div><br>`;
     model.loginCheck = false;
-  } else {
-    model.mainView = `<div class="login"><h1>Welcome ${userName}!</h1></div>`;
   }
+  view();
+}
+
+function welcomeScreen() {
+  return /*HTML*/ `
+  <div class="login" onclick="logOut()"><button>Log out</button>
+  `;
+}
+
+function logOut() {
+  model.loggedIn = false;
+  model.currentUser = {};
+  model.error = `<div>Successfully logged out</div>`
   view();
 }

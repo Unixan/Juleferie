@@ -1,5 +1,9 @@
 function view() {
-  let stemmer = model.loggedIn || model.createAccount || model.loginCheck;
-  if (!stemmer) logInScreen();
+  if (!model.loggedIn && !model.loginCheck && !model.createAccount) {
+    logInScreen();
+  } else if (model.loggedIn) {
+    model.mainView += welcomeScreen();
+    model.mainView
+  }
   model.appDiv.innerHTML = model.mainView;
 }
